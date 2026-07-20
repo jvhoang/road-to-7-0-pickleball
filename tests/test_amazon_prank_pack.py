@@ -48,12 +48,20 @@ class TestShippedContent(unittest.TestCase):
     def test_reviews_pro_praise_and_stars(self):
         reviews = json.loads((CONTENT / "reviews.json").read_text(encoding="utf-8"))
         self.assertGreaterEqual(len(reviews), 4)
+        by_name = {r["name"]: r for r in reviews}
         for r in reviews:
-            self.assertEqual(r["stars"], 5)
+            self.assertIn(r["stars"], (1, 2, 3, 4, 5))
             self.assertIn("Verified Purchase", r["badge"])
             self.assertTrue(r["title"].strip())
             self.assertTrue(r["body"].strip())
             self.assertTrue(r.get("proNote"))
+        # Featured prank / friend reviews
+        self.assertEqual(by_name["YoCherng Lyang"]["stars"], 2)
+        self.assertIn("too high level", by_name["YoCherng Lyang"]["body"])
+        self.assertEqual(by_name["Tan Mai"]["stars"], 1)
+        self.assertIn("already 7.0", by_name["Tan Mai"]["body"].lower())
+        self.assertEqual(by_name["Joseph Hoang"]["stars"], 5)
+        self.assertIn("bestie", by_name["Joseph Hoang"]["body"].lower())
         # At least one review mentions the chapter / core idea
         joined = " ".join(r["body"] + " " + r["title"] for r in reviews)
         self.assertTrue(
@@ -93,10 +101,11 @@ class TestShippedHtml(unittest.TestCase):
         self.assertIn("Customer reviews", html)
         self.assertIn("4.9 out of 5", html)
         self.assertIn("Verified Purchase", html)
-        # Pro-style bylines from reviews.json
+        # Featured friend reviews + pro bylines
+        self.assertIn("Joseph Hoang", html)
+        self.assertIn("YoCherng Lyang", html)
+        self.assertIn("Tan Mai", html)
         self.assertIn("Jordan Blake", html)
-        self.assertIn("Marcus Hale", html)
-        self.assertIn("Elena Voss", html)
         self.assertTrue(re.search(r"PPA|MLP|coach|DUPR", html))
 
 

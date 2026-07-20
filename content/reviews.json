@@ -1,5 +1,41 @@
 [
   {
+    "name": "Joseph Hoang",
+    "badge": "Verified Purchase",
+    "title": "Bestie package arrived",
+    "stars": 5,
+    "date": "Reviewed in the United States on July 11, 2026",
+    "format": "Hardcover",
+    "body": "QD sent me this book personally since he's my bestie. I haven't read it yet.",
+    "helpful": 87,
+    "location": "Houston, TX",
+    "proNote": "Author's bestie · Unopened copy"
+  },
+  {
+    "name": "YoCherng Lyang",
+    "badge": "Verified Purchase",
+    "title": "Too high level for me",
+    "stars": 2,
+    "date": "Reviewed in the United States on July 8, 2026",
+    "format": "Paperback",
+    "body": "Bro, this book is too high level for me. I'm dead",
+    "helpful": 142,
+    "location": "San Jose, CA",
+    "proNote": "Rec doubles · Kitchen survivor"
+  },
+  {
+    "name": "Tan Mai",
+    "badge": "Verified Purchase",
+    "title": "Already 7.0",
+    "stars": 1,
+    "date": "Reviewed in the United States on July 5, 2026",
+    "format": "Kindle Edition",
+    "body": "I'm already 7.0, nothing I already know",
+    "helpful": 96,
+    "location": "Orange County, CA",
+    "proNote": "Self-rated 7.0 · Dinker by trade"
+  },
+  {
     "name": "Marcus Hale",
     "badge": "Verified Purchase",
     "title": "The one chapter that fixed my third-shot drop forever",
