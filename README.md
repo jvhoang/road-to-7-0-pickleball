@@ -1,47 +1,39 @@
-# Road to 7.0 Pickleball — Amazon Prank Pack
+# Road to 7.0 Pickleball
 
-Fake-but-glance-legit **Amazon.com** screenshots for the book:
+**by Quang Duong**
 
-- **Title:** Road to 7.0 Pickleball  
-- **Author:** Quang Duong  
-- **Featured chapter:** Bruce Lee's 1 inch punch  
+[**Open the free Look Inside sample →**](https://jvhoang.github.io/road-to-7-0-pickleball/)
 
-Built for a doubles-partner / brother prank. Nothing is published on real Amazon.
+Featured chapter: **Bruce Lee's 1 inch punch** — the core habit of minimal backswing and core-driven power.
 
-## Send these (ready to text)
+## Pages
 
-Use the files in **`share/`** (also under `screenshots/`):
+| Page | Link |
+|------|------|
+| Look Inside (chapter sample) | [index.html](index.html) / [look-inside.html](look-inside.html) |
+| Amazon-style product page | [product.html](product.html) |
+| Customer reviews | [reviews.html](reviews.html) |
+| Cover detail | [cover-detail.html](cover-detail.html) |
+| Mobile product view | [mobile-product.html](mobile-product.html) |
 
-| File | What it is |
-|------|------------|
-| `01-product-page.png` | Full Amazon product page (cover, price, buy box, ratings) |
-| `03-look-inside-chapter.png` | Look Inside sample — chapter **Bruce Lee's 1 inch punch** |
-| `04-reviews.png` | Highly praising pro-style customer reviews |
-| `05-cover-detail.png` | Cover-focused Amazon product image view |
-| `06-mobile-product.png` | Phone-width Amazon listing (great for iMessage) |
-| `08-cover-standalone.jpg` | Clean book cover only |
+## Share images
 
-Suggested send order: mobile product → look inside chapter → reviews → cover detail.
+Ready-to-send screenshots are in [`share/`](share/).
 
-## Source / regenerate
+## Source
+
+- Chapter copy: `content/chapter-excerpt.md`
+- Product metadata: `content/product.json`
+- Reviews: `content/reviews.json`
+- Cover art: `assets/cover.jpg`
 
 ```bash
-# HTML mocks
-open product.html          # desktop product + reviews
-open look-inside.html      # chapter excerpt
-open reviews.html          # full reviews
-open cover-detail.html     # cover zoom
-open mobile-product.html   # phone layout
+# Local preview
+open index.html
 
-# Re-capture PNGs (needs Playwright Chromium)
+# Regenerate screenshots (Playwright Chromium)
 python3 scripts/capture_playwright.py
 
-# Verify
+# Tests
 python3 -m unittest tests/test_amazon_prank_pack.py -v
 ```
-
-## Content notes
-
-- Chapter explains **minimal backswing + core power**, ties it to Bruce Lee’s one-inch punch, and references pros + tennis / table tennis / squash / martial arts.
-- Reviews use **fictional pro-sounding names** (not real athletes) with PPA/MLP/coach tags so the prank lands without impersonating specific living pros.
-- Cover art: `assets/cover.jpg`
