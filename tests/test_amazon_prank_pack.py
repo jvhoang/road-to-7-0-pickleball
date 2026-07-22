@@ -62,6 +62,9 @@ class TestShippedContent(unittest.TestCase):
         self.assertIn("already 7.0", by_name["Tan Mai"]["body"].lower())
         self.assertEqual(by_name["Joseph Hoang"]["stars"], 5)
         self.assertIn("bestie", by_name["Joseph Hoang"]["body"].lower())
+        self.assertEqual(by_name["Chris Thipavong"]["stars"], 4)
+        self.assertIn("Tatum", by_name["Chris Thipavong"]["body"])
+        self.assertIn("golf", by_name["Chris Thipavong"]["body"].lower())
         # At least one review mentions the chapter / core idea
         joined = " ".join(r["body"] + " " + r["title"] for r in reviews)
         self.assertTrue(
@@ -102,6 +105,7 @@ class TestShippedHtml(unittest.TestCase):
         self.assertIn("4.9 out of 5", html)
         self.assertIn("Verified Purchase", html)
         # Featured friend reviews + pro bylines
+        self.assertIn("Chris Thipavong", html)
         self.assertIn("Joseph Hoang", html)
         self.assertIn("YoCherng Lyang", html)
         self.assertIn("Tan Mai", html)
